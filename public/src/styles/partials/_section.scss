@@ -1,0 +1,92 @@
+.section {
+  min-height: 350px;
+  
+  @media (min-width: 40.0rem) { 
+    hr {
+      display: none !important;
+    }
+  }
+  
+  .section-title {
+    font-size: 2em;
+    padding-top: 60px;
+    color: $red;
+
+    > span {
+      display: inline-block;
+      position: relative;
+      
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        height: 5px;
+        border-top: 5px solid $red;
+        bottom: 25px;
+        width: 150px;
+        
+        @media (max-width: 40.0rem) { 
+          display: none !important;
+        }
+      }
+      
+      &:before {
+        right: 100%;
+        margin-right: 15px;
+      }
+      
+      &:after {
+        left: 100%;
+        margin-left: 15px;
+      }
+    }
+  }
+  
+  &:nth-child(even) {
+    background-color: $red;
+    
+    .section-title {
+      font-size: 2em;
+      padding-top: 60px;
+      color: #fff;
+
+      > span {
+        display: inline-block;
+        position: relative;
+        
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          height: 5px;
+          border-top: 5px solid #fff;
+          bottom: 25px;
+          width: 150px;
+        }
+        
+        &:before {
+          right: 100%;
+          margin-right: 15px;
+        }
+        
+        &:after {
+          left: 100%;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+  
+  .container {
+    margin-top: 60px;
+  }
+  
+  // Different Sections
+  .features {
+    .feature {
+      > .fa {
+        font-size: 3em;
+      }
+    }
+  }
+}

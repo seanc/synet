@@ -1,0 +1,50 @@
+.jumbotron {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.8)
+  ),
+  url('/images/bg.png');
+  height: 350px;
+  
+  .brand-logo {
+    width: 15%;
+  }
+  
+  .brand-motto {
+    font-size: 2em;
+    font-weight: 600;
+    color: $red;
+  }
+  
+  .button {
+    color: $red;
+    border-color: $red;
+    border-width: 2px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 1.05em;
+    min-width: 200px;
+    box-shadow: inset 0 0 0 0 $red;
+    transition: all 200ms;
+    
+    &:hover {
+      color: #fff;
+      box-shadow: inset 200px 0 0 0 $red;
+      border-color: $red;
+    }
+  }
+  
+  &.vertical-center,
+  &.horizontal-center {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &.vertical-center {
+    align-items: center;
+  }
+  
+  &.horizontal-center {
+    justify-content: center;
+  }
+}

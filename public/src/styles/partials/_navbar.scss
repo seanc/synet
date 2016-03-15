@@ -1,0 +1,40 @@
+.navbar {
+  background-color: $red;
+  height: 100px;
+  line-height: 100px;
+  
+  .navbar-brand {
+    display: inline-block;
+    
+    .brand-link {
+      color: #fff;
+      font-weight: 400;
+      font-size: 1.2em;
+    }
+  }
+  
+  .navbar-menu {
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    float: right;
+    
+    .menu-item {
+      margin: 0;
+      float: left;
+      margin: 0 8px;
+    }
+    
+    .menu-link {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 400;
+      transition: color 200ms;
+      
+      &:hover {
+        color: #eee;
+      }
+    }
+  }
+}
