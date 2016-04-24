@@ -52,5 +52,4 @@ App.on('error', function (error, request, response) {
   const message = error.message || 'Internal server error'
   console.log(message, error.stack)
   response.status(status).send(message)
-  process.exit(1)
 })

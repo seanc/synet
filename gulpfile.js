@@ -22,7 +22,7 @@ const paths = {
   
 gulp.task('sass:build', () => 
   gulp.src(paths.sass)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(prefixer(opts.autoPrefixer))
     .pipe(gulp.dest('./public/dist/styles'))
 );

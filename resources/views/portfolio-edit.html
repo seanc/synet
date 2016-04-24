@@ -1,0 +1,45 @@
+{% extends 'layout/portfolio' %}
+
+{% block portfolio %}
+
+  {% if errors %}
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <p>Oh Snap, you've got errors!</p>
+      <ul class="padding-none">
+        {% for error in errors %}
+          <li>{{error.message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  {% if success %}
+    <div class="alert alert-success alert-dismissable" role="alert">
+      <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <p><strong>Success!</strong> Your portfolio item has been updated</p>
+    </div>
+  {% endif %}
+  
+  <form action="/admin/portfolio/update" method="POST" role="form">
+    {{ csrfField | safe }}
+    <input type="hidden" name="item" value="{{ form.id }}">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{ form.name }}">
+    </div>
+  
+    <div class="form-group">
+      <label for="preview">Preview Image</label>
+      <input type="text" class="form-control" id="preview" name="preview" value="{{ form.preview }}">
+    </div>
+    
+    <div class="form-group">
+      <label for="link">Link</label>
+      <input type="text" class="form-control" id="link" name="link" value="{{ form.link }}">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+  
+{% endblock %}

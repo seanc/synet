@@ -26,7 +26,9 @@ const providers = [
   'adonis-lucid/providers/DatabaseProvider',
   'adonis-lucid/providers/LucidProvider',
   'adonis-ace/providers/AnsiProvider',
-  'adonis-middleware/providers/AppMiddlewareProvider'
+  'adonis-middleware/providers/AppMiddlewareProvider',
+  'adonis-framework/providers/HashProvider',
+  'adonis-validation-provider/providers/ValidatorProvider'
 ]
 
 /*
@@ -69,7 +71,9 @@ const aliases = {
   Lucid: 'Adonis/Src/Lucid',
   Runner: 'Adonis/Src/Runner',
   Schema: 'Adonis/Src/Schema',
-  Ansi: 'Adonis/Src/Ansi'
+  Ansi: 'Adonis/Src/Ansi',
+  Hash: 'Adonis/Src/Hash',
+  Validator: 'Adonis/Addons/Validator'
 }
 
 /*
@@ -82,7 +86,8 @@ const aliases = {
 |
 */
 const commands = {
-  'greet:user': 'App/Commands/Greet',
+  'user:create': 'App/Commands/CreateUser',
+  'user:delete': 'App/Commands/DeleteUser',
   'migration:make': 'Adonis/Commands/Make',
   'migration:run': 'Adonis/Commands/Run',
   'migration:rollback': 'Adonis/Commands/Rollback',

@@ -66,10 +66,10 @@ module.exports = {
   mysql: {
     client: 'mysql',
     connection: {
-      host: Env.get('MYSQL_HOST', 'localhost'),
+      host: Env.get('MYSQL_HOST', '127.0.0.1'),
       user: Env.get('MYSQL_USER', 'root'),
-      password: Env.get('MYSQL_PASSWORD', ''),
-      database: Env.get('MYSQL_DATABASE', 'adonis')
+      password: Env.get('MYSQL_PASSWORD', 'root'),
+      database: Env.get('MYSQL_DATABASE', 'synet')
     }
   }
 

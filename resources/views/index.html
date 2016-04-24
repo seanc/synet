@@ -2,8 +2,9 @@
 
 {% block body %}
   <div class="jumbotron vertical-center horizontal-center">
-    <h1 class="brand-motto">Hosting &amp; Web Design Solutions at an affordable price.</h1>
-    <a href="#" class="button button-outline">Our Services</a>
+    <h1 class="brand-title">Synet</h1>
+    <h1 class="brand-motto">A complete solution at an affordable price.</h1>
+    <a href="#" class="button button-outline">View our offers</a>
   </div>
   <div class="section">
     <div class="section-title text-center"><span>Our Services</span></div>
@@ -30,26 +31,148 @@
   </div>
   <div class="section">
     <div class="section-title text-center"><span>Pricing</span></div>
-    <div class="container">
+    <div class="container pricing">
       <hr>
+      <p class="plan-cat-title text-center">VPS Hosting</p>
+      <div class="row">
+        <div class="column plan text-center">
+          <p class="plan-name">Personal</p>
+          <p class="plan-price">8/mo</p>
+          <ul class="plan-details">
+            <li><b>3</b> vCores</li>
+            <li><b>75GB</b> Storage</li>
+            <li><b>4096MB</b> RAM</li>
+            <li><b>1000GB</b> Bandwidth</li>
+            <li><b>3</b> Locations</li>
+          </ul>
+          <a href="#" class="plan-purchase">Buy Now</a>
+        </div>
+        <div class="column plan text-center">
+          <p class="plan-name">Business</p>
+          <p class="plan-price">12/mo</p>
+          <ul class="plan-details">
+            <li><b>4</b> vCores</li>
+            <li><b>100GB</b> Storage</li>
+            <li><b>5120MB</b> RAM</li>
+            <li><b>2000GB</b> Bandwidth</li>
+            <li><b>3</b> Locations</li>
+          </ul>
+          <a href="#" class="plan-purchase">Buy Now</a>
+        </div>
+        <div class="column plan text-center">
+          <p class="plan-name">Enterprise</p>
+          <p class="plan-price">15/mo</p>
+          <ul class="plan-details">
+            <li><b>4</b> vCores</li>
+            <li><b>125GB</b> Storage</li>
+            <li><b>61446MB</b> RAM</li>
+            <li><b>2000GB</b> Bandwidth</li>
+            <li><b>3</b> Locations</li>
+          </ul>
+          <a href="#" class="plan-purchase">Buy Now</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="section">
     <div class="section-title text-center"><span>Portfolio</span></div>
-    <div class="container">
+    <div class="container portfolio">
       <hr>
+      {% if chunks | length > 0 %}
+        {% for chunk in chunks %}
+          <div class="row">
+            {% for item in chunk %}
+              <div class="column column-33">
+                <div class="case-study">
+                  <input type="hidden" value="{{ item.link }}" class="redirect">
+                  <p class="overlay"><span>{{ item.name }}</span></p>
+                  <img src="{{ item.preview }}" alt="" class="study-preview">
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+    {% else %}
+      <h4 class="text-center">We'll add something here soon!</h4>
+    {% endif %}
     </div>
   </div>
   <div class="section">
-    <div class="section-title text-center"><span>About Us</span></div>
-    <div class="container">
+    <div class="section-title text-center"><span>Meet The Team</span></div>
+    <div class="container about">
       <hr>
+      <div class="row">
+        <div class="column column-33">
+          <div class="profile">
+            <img src="https://avatars0.githubusercontent.com/u/13725538?v=3&s=460" alt="" class="profile-img">
+            <div class="profile-details">
+              <p class="profile-name"><b>Sean Wilson</b></p>
+              <p class="profile-description">
+                Sean Wilson is a full-stack web developer who strives to
+                create awesome things that look nice and work well. He
+                continually looks to experiment with new languages 
+                and frameworks to expand his arsenal of ever-expanding tools.
+              </p>
+              <div class="profile-social">
+                <a href="https://twitter.com/programmatical" class="social-link"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/seanc" class="social-link"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column column-33">
+          <div class="profile">
+            <img src="https://avatars2.githubusercontent.com/u/10208174?v=3&s=460" alt="" class="profile-img">
+            <div class="profile-details">
+              <p class="profile-name"><b>Eric Belanger</b></p>
+              <p class="profile-description">Thing</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="section">
     <div class="section-title text-center"><span>Contact Us</span></div>
-    <div class="container">
+    <div class="container contact">
       <hr>
+      <div class="row">
+        <div class="column column-60">
+          <form class="contact-form">
+            <fieldset>
+              <div class="row">
+                <div class="column">
+                  <label for="name-field">Name</label>
+                  <input type="text" id="name-field" name="nameField">
+                </div>
+                <div class="column">
+                  <label for="email-field">Email</label>
+                  <input type="text" id="email-field" name="emailField">
+                </div>
+              </div>
+              <label for="subject-field">Subject</label>
+              <input type="text" id="subject-field" name="subjectField">
+              <label for="message-field">Inquiry</label>
+              <textarea name="Enter your message here" id="message-field" name="messageField" cols="30" rows="10"></textarea>
+              <input type="submit" class="button-red button-primary" value="Send">
+            </fieldset>
+          </form>
+        </div>
+        <div class="column column-offset-10">
+          <br>
+          <h4>Need help?</h4>
+          <ul class="contact-list">
+            <li><a href="mailto:support@synet.com">support@synet.com</a></li>
+            <li><a href="mailto:business@synet.com">business@synet.com</a></li>
+          </ul>
+          <!--<hr>
+          <h4>Social Networks</h4>
+          <ul class="contact-list">
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>-->
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

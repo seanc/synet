@@ -89,4 +89,187 @@
       }
     }
   }
+  
+  .pricing {
+    .plan-cat-title {
+      font-size: 1.5em;
+      color: #fff;
+    }
+    .plan {
+      > .plan-name {
+        color: $red;
+        background-color: #fff;
+        font-size: 1.5em;
+        height: 80px;
+        line-height: 80px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      > .plan-price {
+        background-color: darken(#fff, 5%);
+        margin-top: -25px;
+        height: 45px;
+        line-height: 45px;
+        
+        &:before {
+          content: '$';
+        }
+      }
+      > .plan-details {
+        list-style: none;
+        margin-top: -25px;
+        background-color: #fff;
+        padding: 8px 0px;
+      }
+      > .plan-purchase {
+        transform: translateY(-30px);
+        display: block;
+        height: 45px;
+        line-height: 45px;
+        color: #fff;
+        background-color: darken($red, 10%);
+        font-weight: 600;
+        transition: all 200ms;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        
+        &:hover {
+          background-color: darken($red, 15%);
+        }
+      }
+    }
+  }
+  
+  .portfolio {
+    margin-bottom: 45px;
+    
+    .row {
+      margin-bottom: 15px;
+    }
+    
+    .case-study {
+      position: relative;
+      line-height: 0px;
+      
+      > .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(#000, 0.5);
+        opacity: 0;
+        transition: all 200ms;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        > span {
+          font-weight: 600;
+          font-size: 1.5em;
+          color: #fff;
+        }
+        
+        &:hover {
+          opacity: 1;
+        }
+      }
+      
+      > .study-preview {
+        max-width: 100%;
+        padding: 0px;
+      }
+    }
+  }
+  
+  .about {
+    padding-bottom: 45px;
+    
+    @media (max-width: 40.0rem) {
+      .column {
+        max-width: 100%;
+        margin-bottom: 25px;
+      }
+    }
+    
+    .profile {
+      background-color: #fff;
+      $border-radius: 10px;
+      border-radius: $border-radius;
+      width: 100%;
+      
+      .profile-img {
+        width: 100%;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+      }
+      
+      .profile-details {
+        padding: 15px;
+      }
+      
+      .profile-name {
+        font-size: 1.2em;
+        line-height: 15px;
+      }
+      
+      .profile-description {
+        margin-top: -15px;
+      }
+      
+      .profile-social {
+        font-size: 0;
+        
+        .social-link {
+          text-decoration: none;
+          color: #606c76;
+          margin-right: 15px;
+          
+          > .fa {
+            font-size: 25px;
+          }
+        }
+      }
+    }
+  }
+  
+  .contact {
+    @media (max-width: 40.0rem) {
+      .column {
+        max-width: 100%;
+        margin-bottom: 25px;
+        margin-left: 0;
+      }
+    }
+    
+    .contact-form {
+      input:focus,
+      textarea:focus {
+        border-color: $red;
+      }
+      
+      #message-field {
+        resize: none;
+        height: 200px;
+      }
+    }
+    
+    .contact-list {
+      list-style: none;
+      
+      > li {
+        line-height: 25px;
+        padding-bottom: 8px;
+        
+        > a {
+          color: $red;
+        }
+        
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(#606c76, 0.2); 
+        }
+      }
+    }
+  }
 }

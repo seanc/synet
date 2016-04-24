@@ -1,0 +1,21 @@
+{% extends '../admin' %}
+
+{% block dashboard %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Portfolio Management
+      <div class="pull-right">
+        <div class="btn-group btn-group-xs">
+          <a href="#" class="btn btn-primary btn-small">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+           Add Item</a>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      {% block portfolio %}
+        
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}
