@@ -10,10 +10,10 @@ const ValidatorMessages = {
   'email.email': 'Please provide your email in the correct format (example@mail.com)',
   
   'subject.required': 'Please specify a subject',
-  'subject.min': 'Your subject should be at least 50 characters',
+  'subject.min': 'Your subject should be at least 10 characters',
   
   'message.required': 'Please specify a message',
-  'message.min': 'Your message should be at least 120 characters'
+  'message.min': 'Your message should be at least 50 characters'
 }
 
 class HomeController {
@@ -30,8 +30,8 @@ class HomeController {
     const rules = {
       'name': 'required',
       'email': 'required|email',
-      'subject': 'required|min:50',
-      'message': 'required|min:120'
+      'subject': 'required|min:10',
+      'message': 'required|min:50'
     }
     const data = request.except('_csrf');
     const validation = yield Validator.validate(rules, data, ValidatorMessages)
