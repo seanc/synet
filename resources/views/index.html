@@ -138,22 +138,41 @@
       <hr>
       <div class="row">
         <div class="column column-60">
-          <form class="contact-form">
+          {% if success %}
+            <div class="alert alert-success">
+              <p>{{ success.message }}</p>
+            </div>
+          {% endif %}
+          <form action="/contact" method="POST" class="contact-form">
+            {{ csrfField | safe }}
             <fieldset>
               <div class="row">
                 <div class="column">
                   <label for="name-field">Name</label>
-                  <input type="text" id="name-field" name="nameField">
+                  <input type="text" id="name-field" name="name" value="{{ old('name') }}">
+                  {% if form_errors[0].field == 'name' %}
+                    <small class="form-error">{{ form_errors[0].message }}</small>
+                  {% endif %}
                 </div>
                 <div class="column">
                   <label for="email-field">Email</label>
-                  <input type="text" id="email-field" name="emailField">
+                  <input type="text" id="email-field" name="email">
+                  {% if form_errors[0].field == 'email' %}
+                    <small class="form-error">{{ form_errors[0].message }}</small>
+                  {% endif %}
                 </div>
               </div>
               <label for="subject-field">Subject</label>
-              <input type="text" id="subject-field" name="subjectField">
+              <input type="text" id="subject-field" name="subject">
+              {% if form_errors[0].field == 'subject' %}
+                <small class="form-error">{{ form_errors[0].message }}</small>
+              {% endif %}
               <label for="message-field">Inquiry</label>
-              <textarea name="Enter your message here" id="message-field" name="messageField" cols="30" rows="10"></textarea>
+              <textarea id="message-field" name="message" cols="30" rows="10"></textarea>
+              {% if form_errors[0].field == 'message' %}
+                <br>
+                <small class="form-error">{{ form_errors[0].message }}</small>
+              {% endif %}
               <input type="submit" class="button-red button-primary" value="Send">
             </fieldset>
           </form>

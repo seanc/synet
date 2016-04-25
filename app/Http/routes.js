@@ -13,6 +13,7 @@
 const Route = use('Route')
 
 Route.get('/', 'HomeController.index')
+Route.post('/contact', 'HomeController.contact')
 
 // Admin
 
@@ -29,6 +30,9 @@ Route.group('admin', function() {
   Route.get('/portfolio/delete/:item', 'PortfolioController.destroy')
   Route.post('/portfolio/create', 'PortfolioController.create')
   Route.post('/portfolio/update', 'PortfolioController.update')
+  
+  Route.get('/contact', 'ContactController.index')
+  Route.get('/contact/view/:id', 'ContactController.show')
     
   Route.get('/logout', 'AuthController.logout')
 }).prefix('/admin').middlewares(['auth'])

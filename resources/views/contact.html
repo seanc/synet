@@ -1,0 +1,52 @@
+{% extends 'admin' %}
+
+{% block dashboard %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Contact Request Management
+    </div>
+    <div class="panel-body">
+      {% if success %}
+        <div class="alert alert-success alert-dismissable" role="alert">
+          <button class="close" type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p><strong>Success!</strong> {{ success.message }}</p>
+        </div>
+      {% endif %}
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Read</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for req in requests %}
+              <tr>
+                <td>{{ req.id }}</td>
+                <td>{{ req.name }}</td>
+                <td>{{ req.email }}</td>
+                <td>{{ req.subject | truncate(30) }}</td>
+                <td>{{ req.message | truncate(30) }}</td>
+                <td>{{ req.read }}</td>
+                <td data-item-id="{{ item.id }}">
+                  <div class="btn-group btn-group-xs">
+                    <a href="/admin/contact/view/{{ req.id }}" class="btn btn-primary btn-small">
+                      <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                      View
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

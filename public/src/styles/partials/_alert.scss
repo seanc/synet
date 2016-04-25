@@ -1,0 +1,12 @@
+.alert {
+  height: 45px;
+  line-height: 48px;
+  border-radius: 5px;
+  padding: 0 15px;
+  margin-bottom: 25px;
+  color: #fff;
+  
+  &.alert-success {
+    background-color: #2ecc71;
+  }
+}
